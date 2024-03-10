@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "640855543663",
+    "project_id": "tradex-6aebc",
+    "storage_bucket": "tradex-6aebc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640855543663:android:8f43e3bb9c24a041b4e29a",
+        "android_client_info": {
+          "package_name": "com.example.trade_x"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY5MGC0CReeqHmQE-l5iW8pXrGnWMWk5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
