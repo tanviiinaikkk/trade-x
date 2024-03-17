@@ -21,12 +21,20 @@ class _MainScreenState extends State<MainScreen> {
 
   List<Widget> _pages = [
     HomeScreen(),
-    CategoryScreen(),
     StoreScreen(),
-    CartScreen(),
+    CartScreen(cartItems: []),
     SearchScreen(),
     AccountScreen(),
+    CategoryScreen(),
   ];
+
+  // Function to update cart items
+  void updateCartItems(List<Product> cartItems) {
+    setState(() {
+      _pages[2] = CartScreen(cartItems: cartItems);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -61,7 +69,7 @@ class _MainScreenState extends State<MainScreen> {
               'assets/icons/search.svg',
               width : 20,
             ),
-            label:'SEARCH',),
+            label:'FAQs',),
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
               'assets/icons/account.svg',

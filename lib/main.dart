@@ -1,36 +1,15 @@
-// import 'package:flutter/material.dart';
-// import 'package:trade_x/views/buyers/main_screen.dart';
-//
-// void main() {
-//   runApp(const MyApp());
-// }
-//
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-//
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-//         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-//         useMaterial3: true,
-//         fontFamily: 'Brand-Bold',
-//       ),
-//       home: MainScreen(),
-//     );
-//   }
-// }
-//
-
-
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:trade_x/views/buyers/main_screen.dart';
+import 'package:flutter/services.dart';
+import 'package:trade_x/firebase_options.dart';
+import 'package:trade_x/views/buyers/auth/register_screen.dart';
+// // import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:trade_x/views/buyers/main_screen.dart';
 import 'dart:async';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -39,7 +18,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -47,8 +29,8 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Brand-Bold',
       ),
       home: AnimatedSplashScreen(
-        logoImagePath: 'assets/icons/explore.svg',
-        mainScreen: MainScreen(),
+        logoImagePath: 'assets/logo1.png',
+        mainScreen: RegisterScreen(),
       ),
     );
   }
@@ -82,12 +64,12 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen>
       duration: const Duration(seconds: 3),
     );
 
-    _animation = Tween<double>(
-      begin: 0,
-      end: 1,
-    ).animate(_controller);
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    );
 
-    _controller.forward();
+    _controller.repeat(reverse: true);
 
     Timer(const Duration(seconds: 3), () {
       if (mounted) {
@@ -107,23 +89,39 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnimatedBuilder(
-        animation: _animation,
-        builder: (BuildContext context, Widget? child) {
-          return Transform.scale(
-            scale: 1 + (_animation.value * 0.5), // Scale from 1 to 1.5
-            child: Center(
-              child: Opacity(
-                opacity: 1 - _animation.value,
-                child: Image.asset(
-                  widget.logoImagePath,
-                  width: 200,
-                  height: 200,
+      body: Stack(
+        children: [
+          Center(
+            child: RotationTransition(
+              turns: _animation,
+              child: ScaleTransition(
+                scale: _animation,
+                child: Opacity(
+                  opacity: 1 - _animation.value,
+                  child: Image.asset(
+                    widget.logoImagePath,
+                    width: 200,
+                    height: 200,
+                  ),
                 ),
               ),
             ),
-          );
-        },
+          ),
+          Positioned(
+            bottom: 20,
+            left: 0,
+            right: 0,
+            child: Text(
+              "TradeX Ecommerce",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Colors.yellow.shade900,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
