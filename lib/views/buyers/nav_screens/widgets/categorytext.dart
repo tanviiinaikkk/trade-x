@@ -38,7 +38,7 @@ class CategoryText extends StatelessWidget {
                           child: Text(_categorylabel[index],
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 12,
+                              fontSize: 14,
                               fontWeight: FontWeight.bold,
                           ),
                           ),

@@ -9,7 +9,7 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const Text('Account'),
         backgroundColor: Colors.yellow.shade900, // Use the theme color for the app bar
       ),
       body: ListView(
@@ -42,7 +42,7 @@ class AccountScreen extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()),
+                MaterialPageRoute(builder: (context) => HomeScreen()),
               );
             },
           ),
