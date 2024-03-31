@@ -11,10 +11,9 @@ class ShakeDetectorWidget extends StatefulWidget {
 class _ShakeDetectorWidgetState extends State<ShakeDetectorWidget> {
   static const List<String> quotes = [
   "Amazon started as a humble online bookstore in 1994 and now reigns as the global giant of ecommerce.",
-  "Alibaba's Singles' Day celebration has become the world's largest online shopping event, surpassing Black Friday and Cyber Monday combined.",
   "eBay revolutionized online shopping with its auction-style listings and feedback system, fostering trust among users.",
-  "Walmart's acquisition of Jet.com signaled its commitment to ecommerce, leading to innovative services like 'Pickup Today.'",
-  "Shopify empowers over 1.7 million businesses worldwide with its customizable platform and extensive app store."
+  "Shopify empowers over 1.7 million businesses worldwide with its customizable platform and extensive app store.",
+    "🎉🎉 Use code 'TRX10' to get 10% discount on your order 🎉🎉"
   ];
 
   String quote = quotes.first;

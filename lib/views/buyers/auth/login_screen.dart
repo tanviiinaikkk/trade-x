@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:trade_x/bio.dart';
 import 'package:trade_x/views/buyers/auth/register_screen.dart';
 import 'package:trade_x/views/buyers/main_screen.dart';
+import 'package:trade_x/views/buyers/nav_screens/widgets/developer_widget.dart';
 
 import '../../../controllers/auth_controller.dart';
 import '../../../utils/show_snackBar.dart';
@@ -74,6 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Padding(
                   padding: const EdgeInsets.all(13.0),
                   child: TextFormField(
+                    obscureText: true, // Set obscureText to true to show dots instead of text
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'password not be empty';
@@ -117,6 +120,30 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
 
+                SizedBox(
+                  height: 10,
+                ),
+
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Bio()),
+                      );
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(Colors.yellow.shade900),
+                    ),
+                    child: Text('Login using Fingerprint',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),),
+                  ),
+
+                ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -133,6 +160,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     )
                   ],
                 ),
+
+                DeveloperText(),
               ],
             ),
           ),

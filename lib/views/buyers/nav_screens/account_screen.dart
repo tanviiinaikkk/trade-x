@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trade_x/views/buyers/nav_screens/home_screen.dart';
+import 'package:trade_x/views/buyers/nav_screens/profile.dart';
  // Import the ThemeAccountScreen
 
 class AccountScreen extends StatelessWidget {
@@ -16,10 +17,15 @@ class AccountScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         children: [
           ListTile(
-            title: const Text('Profile Settings'),
+            title: const Text('Profile'),
             leading:  Icon(Icons.person, color: Colors.yellow.shade900), // Use theme color for the icon
             onTap: () {
-              // Handle tapping on profile settings
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+
             },
           ),
           ListTile(

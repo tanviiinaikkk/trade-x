@@ -31,18 +31,20 @@ class CategoryText extends StatelessWidget {
                     itemBuilder: (context, index){
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: ActionChip(
-                        backgroundColor: Colors.yellow.shade900,
-                        onPressed: (){},
-                        label : Center(
-                          child: Text(_categorylabel[index],
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
+                    child: Material(
+                      child: ActionChip(
+                          backgroundColor: Colors.yellow.shade900,
+                          onPressed: (){},
+                          label : Center(
+                            child: Text(_categorylabel[index],
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                            ),
+                            ),
                           ),
-                          ),
-                        ),
+                      ),
                     ),
                   );
 

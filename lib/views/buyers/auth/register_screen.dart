@@ -6,6 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:trade_x/controllers/auth_controller.dart';
 import 'package:trade_x/utils/show_snackBar.dart';
 import 'package:trade_x/views/buyers/auth/login_screen.dart';
+import 'package:trade_x/views/buyers/nav_screens/widgets/developer_widget.dart';
 
 class RegisterScreen extends StatefulWidget {
   
@@ -154,6 +155,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Padding(
                   padding: const EdgeInsets.all(13.0),
                   child: TextFormField(
+                    obscureText: true, // Set obscureText to true to show dots instead of text
                     validator: (value){
                       if(value!.isEmpty){
                         return 'password not be empty';
@@ -208,6 +210,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     )
                   ],
                 ),
+
+                DeveloperText(),
               ],
             ),
           ),

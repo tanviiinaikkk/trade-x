@@ -7,6 +7,8 @@ import 'package:trade_x/views/buyers/auth/register_screen.dart';
 // import 'package:trade_x/views/buyers/main_screen.dart';
 import 'dart:async';
 
+import 'package:trade_x/views/buyers/nav_screens/widgets/developer_widget.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -121,6 +123,8 @@ class _AnimatedSplashScreenState extends State<AnimatedSplashScreen>
               ),
             ),
           ),
+
+          DeveloperText(),
         ],
       ),
     );
